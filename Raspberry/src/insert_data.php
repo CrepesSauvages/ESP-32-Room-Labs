@@ -9,11 +9,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
     exit();
 }
 
-$servername = getenv('DB_HOST')
-$username   = getenv('DB_USER')
-$password   = getenv('DB_PASSWORD')
-$dbname     = getenv('DB_NAME')
-$port       = getenv('DB_PORT')
+$servername = getenv('DB_HOST');
+$username   = getenv('DB_USER');
+$password   = getenv('DB_PASSWORD');
+$dbname     = getenv('DB_NAME');
+$port       = getenv('DB_PORT');
 
 // Test de connexion (GET ?test=1)
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['test'])) {
