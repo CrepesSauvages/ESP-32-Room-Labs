@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: esp32_web
+    restart: unless-stopped
+    ports:
+      - "8084:80"
+    environment:
+      DB_HOST: host.docker.internal
+      DB_USER: USER
+      DB_PASSWORD: PASSWORD
+      DB_NAME: NAME DB
+      DB_PORT: 3306
+    volumes:
+      - ./src:/var/www/html
+      - ./logs:/var/log/apache2
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - esp32_network
+
+networks:
+  esp32_network:
+    driver: bridge
